@@ -1,0 +1,45 @@
+@import '../../../styles/colors';
+
+.header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $bgColorLight;
+
+    &-nav {
+        width: 95%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .header-logo {
+            .photo {
+                height: 65px;
+            }
+        }
+
+        .header-list {
+            list-style: none;
+            display: flex;
+            column-gap: 20px;
+            color: $white;
+            text-transform: capitalize;
+
+            .header-pages {
+                cursor: pointer;
+
+                .header-pages-link {
+                    text-decoration: none;
+                    color: $white;
+                }
+
+                .active {
+                    border-bottom: 1px solid yellowgreen;
+                }
+            }
+        }
+    }
+}

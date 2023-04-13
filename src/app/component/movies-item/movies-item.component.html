@@ -1,0 +1,8 @@
+<div class='container'>
+    <h2>{{title}}</h2>
+    <div class='grid'>
+        <div class='col-6  md:col-3 lg:col-2' *ngFor="let item of items">
+            <app-movies-item-container [itemData]="item"></app-movies-item-container>
+        </div>
+    </div>
+</div>

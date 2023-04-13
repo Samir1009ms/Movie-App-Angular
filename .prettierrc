@@ -1,0 +1,36 @@
+{
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "printWidth": 120,
+  "tabWidth": 2,
+  "arrowParens": "avoid",
+  "endOfLine": "auto",
+
+  "overrides": [
+    {
+      "files": ["*.html"],
+      "options": {
+        "parser": "angular"
+      }
+    },
+    {
+      "files": ["*.scss"],
+      "options": {
+        "parser": "scss"
+      }
+    },
+    {
+      "files": ["*.ts"],
+      "options": {
+        "parser": "typescript"
+      }
+    },
+    {
+      "files": [".prettierrc"],
+      "options": {
+        "parser": "json"
+      }
+    }
+  ]
+}

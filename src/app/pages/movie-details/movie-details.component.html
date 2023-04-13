@@ -1,0 +1,81 @@
+<ng-container *ngIf="movie">
+    <app-slider [items]="[movie]" [isBanner]="true"></app-slider>
+
+    <div class="card">
+        <p-tabView>
+            <p-tabPanel header="Overwiev">
+                <div class="grid">
+                    <div class="col-12 md:col-3 lg:col-3">
+                        <img [src]="'https://image.tmdb.org/t/p/w780/' + movie.poster_path" [alt]="movie.title"
+                            class="poster" />
+                    </div>
+                    <div class="col-12 md:col-9 lg:col-9">
+                        <h2>Overview</h2>
+                        <p class="overview">{{ movie.overview }}</p>
+                        <div class="stat">
+                            <div class="label">Release Date:</div>
+                            <div class="value">
+                                {{ movie.release_date | date : 'dd.MM.yyyy' }}
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <div class="label">Language:</div>
+                            <div class="value">
+                                {{ movie.original_language | uppercase }}
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <div class="label">Revenue:</div>
+                            <div class="value">
+                                {{ movie.revenue | currency }}
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <div class="label">Duration:</div>
+                            <div class="value">
+                                {{ movie.runtime }} min
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <div class="label">Satatus:</div>
+                            <div class="value">
+                                {{ movie.status }}
+                            </div>
+                        </div>
+                        <div class="stat">
+                            <div class="label">Genres:</div>
+                            <div class="value">
+                                <span *ngFor='let genre of movie.genres'>
+                                    {{ genre.name }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </p-tabPanel>
+            <p-tabPanel header="Videos">
+                <div class='grid'>
+                    <ng-container *ngFor='let movieVideo of movieVideos'>
+                        <div class='col-12 md:col-4 lg:col-4'>
+                            <app-movie-video [key]='movieVideo.key' [site]='movieVideo.site'></app-movie-video>
+                        </div>
+                    </ng-container>
+                </div>
+            </p-tabPanel>
+            <p-tabPanel header="Photos">
+                <div class='grid'>
+                    <ng-container *ngFor='let movieImage of movieImages?.backdrops' >
+                        <div class='col-12 md:col-4 lg:col-4'>
+                            <p-image
+                                    [src]="'https://image.tmdb.org/t/p/w780/' + movieImage.file_path"
+                                    alt="Image"
+                                    width="100%"
+                                    [preview]="true"
+                            ></p-image>
+                        </div>
+                    </ng-container>
+                </div>
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+</ng-container>

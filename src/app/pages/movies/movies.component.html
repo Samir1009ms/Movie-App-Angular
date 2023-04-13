@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="grid">
+        <div class="col-6 md:col-3 lg:col-3" *ngFor="let movie of iMovies">
+            <app-movies-item-container [itemData]='movie' title="movie"></app-movies-item-container>
+        </div>
+    </div>
+    <div>
+
+        <p-paginator (onPageChange)="paginate($event)" [rows]="20" [totalRecords]="10000"></p-paginator>
+    </div>
+</div>
