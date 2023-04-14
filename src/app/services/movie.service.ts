@@ -22,12 +22,15 @@ export class MovieService {
     );
   }
 
-  MovieData(page: number) {
-    return this.http.get<IMovieDto>(`${this.baseUrl}popular?page=${page}&api_key=${this.apiKey}`).pipe(
-      switchMap(res => {
-        return of(res.results);
-      })
-    );
+  MovieData(page: number, searchValue?: string | null) {
+    const url = searchValue ? 'search/movie' : 'movie/popular';
+    return this.http
+      .get<IMovieDto>(`${this.mainUrl}${url}?page=${page}&query=${searchValue}&api_key=${this.apiKey}`)
+      .pipe(
+        switchMap(res => {
+          return of(res.results);
+        })
+      );
   }
 
   getMovie(id: string) {

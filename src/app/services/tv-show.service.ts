@@ -12,12 +12,15 @@ export class TvShowService {
   apKey = '952398355be12c53036c047c5df2f1d3';
   mainUrl = 'https://api.themoviedb.org/3/';
 
-  getTvShows(type: string = 'popular', page: number) {
-    return this.http.get<ITvShowDto>(`${this.baseUrl}${type}?api_key=${this.apKey}&page=${page}`).pipe(
-      switchMap(res => {
-        return of(res.results);
-      })
-    );
+  getTvShows(page: number, searchValue?: string | null) {
+    const url = searchValue ? 'search/tv' : 'tv/popular';
+    return this.http
+      .get<ITvShowDto>(`${this.mainUrl}${url}?page=${page}&query=${searchValue}&api_key=${this.apKey}`)
+      .pipe(
+        switchMap(res => {
+          return of(res.results);
+        })
+      );
   }
 
   getTvShowDetails(id: number) {

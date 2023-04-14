@@ -1,6 +1,23 @@
 <div class="container">
     <div class="grid">
+        <div class="col-12">
+            <div class="p-fluid">
+        <span class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input
+                  class='input'
+                  type="text"
+                  pInputText
+                  placeholder="Search"
+                  [(ngModel)]='searchValue'
+                  (keyup)='searchChanged()'
+          />
+        </span>
+            </div>
+        </div>
+    </div>
+    <div class="grid">
         <app-movies-item [movies]='iMovies' title="movie"></app-movies-item>
-        <p-paginator (onPageChange)="paginate($event)" [rows]="24" [totalRecords]="10000"></p-paginator>
+        <p-paginator  (onPageChange)="paginate($event)" [rows]="24" [totalRecords]="10000"></p-paginator>
     </div>
 </div>

@@ -9,17 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoviesComponent implements OnInit {
   iMovies: IMovie[] = [];
+  searchValue: string | null = '';
   constructor(private MovieService: MovieService) {}
   ngOnInit(): void {
     this.getPage(1);
   }
 
-  getPage(page: number) {
-    this.MovieService.MovieData(page).subscribe(res => {
+  getPage(page: number, searchValue?: string) {
+    this.MovieService.MovieData(page, searchValue).subscribe(res => {
       this.iMovies = res;
     });
   }
   paginate(event: any) {
-    this.getPage(event.page + 1);
+    this.searchValue ? this.getPage(event.page + 1, this.searchValue) : this.getPage(event.page + 1);
+  }
+  searchChanged() {
+    this.searchValue ? this.getPage(1, this.searchValue) : this.getPage(+1);
   }
 }
