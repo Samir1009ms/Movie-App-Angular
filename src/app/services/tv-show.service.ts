@@ -8,7 +8,7 @@ import { IMovieCredits, IMovieDto, ITvShow, ITvShowDto, ITvShowImagesDto, ITvSho
 })
 export class TvShowService {
   constructor(private http: HttpClient) {}
-  baseUrl = 'http://api.themoviedb.org/3/tv/';
+  baseUrl = 'https://api.themoviedb.org/3/tv/';
   apKey = '952398355be12c53036c047c5df2f1d3';
   mainUrl = 'https://api.themoviedb.org/3/';
 
