@@ -31,15 +31,15 @@ const routes: Routes = [
     component: GenreMovieComponent,
   },
   {
-    path: 'genres/tv-shows/:id',
+    path: 'genres/tvShows/:id',
     component: GenreTvShowComponent,
   },
   {
-    path: 'tv-shows',
+    path: 'tvShows',
     component: TvShowComponent,
   },
   {
-    path: 'tv-shows/:id',
+    path: 'tvShows/:id',
     component: TvShowDetailsComponent,
   },
   {

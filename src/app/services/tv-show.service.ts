@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { of, switchMap } from 'rxjs';
-import { IMovieCredits, ITvShow, ITvShowDto, ITvShowImagesDto, ITvShowVideoDto } from '../models/movie';
+import { IMovieCredits, IMovieDto, ITvShow, ITvShowDto, ITvShowImagesDto, ITvShowVideoDto } from '../models/movie';
 
 @Injectable({
   providedIn: 'root',
