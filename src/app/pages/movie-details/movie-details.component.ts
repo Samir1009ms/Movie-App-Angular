@@ -1,5 +1,5 @@
 import { first } from 'rxjs';
-import {ICast, IMovie, IMovieCredits, IMovieImages, IMovieVideo} from './../../models/movie';
+import { ICast, IMovie, IMovieCredits, IMovieImages, IMovieVideo } from './../../models/movie';
 import { MovieService } from './../../services/movie.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -23,7 +23,7 @@ export class MovieDetailsComponent implements OnInit {
       this.getMovieVideo(id);
       this.getMovieImages(id);
       this.getMovieCredits(id);
-        this.getMoviesSimilar(id);
+      this.getMoviesSimilar(id);
     });
   }
 
@@ -38,9 +38,9 @@ export class MovieDetailsComponent implements OnInit {
     });
   }
   getMovieImages(id: string) {
-    this.MovieService.getMovieImages(id).subscribe((movieImagesData) => {
+    this.MovieService.getMovieImages(id).subscribe(movieImagesData => {
       this.movieImages = movieImagesData;
-      console.log(movieImagesData)
+      console.log(movieImagesData);
     });
   }
   getMovieCredits(id: string) {

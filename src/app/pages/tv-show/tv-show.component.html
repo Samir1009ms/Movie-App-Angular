@@ -1,0 +1,7 @@
+<div class="container" *ngIf="tvShows">
+    <div>
+        <app-movies-item [tvShows]='tvShows' title="tvShow"></app-movies-item>
+
+        <p-paginator (onPageChange)="paginate($event)" [rows]="24" [totalRecords]="10000"></p-paginator>
+    </div>
+</div>

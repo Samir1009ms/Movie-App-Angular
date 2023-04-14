@@ -1,9 +1,10 @@
 <div class="slider">
+<ng-container *ngIf="items">
     <ng-container *ngFor="let item of items;let i =index">
         <div class="slide" *ngIf="i==counter" @animation>
             <div class="slide-bg">
                 <img class="slide-bg-image" alt=""
-                    [src]="'https://image.tmdb.org/t/p/original/' + item.backdrop_path" />
+                     [src]="'https://image.tmdb.org/t/p/original/' + item.backdrop_path" />
             </div>
             <div class="slide-pane">
                 <h2 class="name">{{ item.title }}</h2>
@@ -11,7 +12,7 @@
                     <div class="info">
                         <span class="rating">
                             <span class="app-icon">star</span><span class="rating-value">{{ item.vote_average
-                                }}</span><span>/10</span>
+                            }}</span><span>/10</span>
                         </span>
                         <span>{{ item.vote_count }}</span>
                         <span>{{ item.release_date | date : 'yyyy' }}</span>
@@ -23,4 +24,31 @@
             </div>
         </div>
     </ng-container>
+</ng-container>
+   <ng-container *ngIf="tvShows">
+       <ng-container *ngFor="let tvshow of tvShows;let i =index">
+           <div class="slide" *ngIf="i==counter" @animation>
+               <div class="slide-bg">
+                   <img class="slide-bg-image" alt=""
+                        [src]="'https://image.tmdb.org/t/p/original/' + tvshow.backdrop_path" />
+               </div>
+               <div class="slide-pane">
+                   <h2 class="name">{{ tvshow.name }}</h2>
+                   <div class="meta">
+                       <div class="info">
+                        <span class="rating">
+                            <span class="app-icon">star</span><span class="rating-value">{{ tvshow.vote_average
+                            }}</span><span>/10</span>
+                        </span>
+                           <span>{{ tvshow.vote_count }}</span>
+                           <span>{{ tvshow.first_air_date | date : 'yyyy' }}</span>
+                       </div>
+                   </div>
+                   <div class="desc mt-6">
+                       {{ tvshow.overview }}
+                   </div>
+               </div>
+           </div>
+       </ng-container>
+   </ng-container>
 </div>

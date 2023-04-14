@@ -1,4 +1,4 @@
-import { IMovie } from './../../models/movie';
+import { IMovie, ITvShow } from './../../models/movie';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -7,5 +7,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./movies-item-container.component.scss'],
 })
 export class MoviesItemContainerComponent {
-  @Input() itemData: IMovie | null = null;
+  @Input() movie: IMovie | null = null;
+  @Input() tvShow: ITvShow | null = null;
 }

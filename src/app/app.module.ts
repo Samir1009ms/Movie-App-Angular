@@ -14,8 +14,6 @@ import { SliderComponent } from './component/slider/slider.component';
 
 import { HeaderComponent } from './shared/header/header.component';
 
-
-// import { FooterComponent } from './shared/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MoviesItemComponent } from './component/movies-item/movies-item.component';
 
@@ -24,7 +22,14 @@ import { TabViewModule } from 'primeng/tabview';
 import { MovieVideoComponent } from './component/movie-video/movie-video.component';
 import { ImageModule } from 'primeng/image';
 import { CarouselModule } from 'primeng/carousel';
-
+import { GenresComponent } from './pages/genres/genres.component';
+import { GenreMovieComponent } from './pages/genre-movie/genre-movie.component';
+import { GenreTvShowComponent } from './pages/genre-tv-show/genre-tv-show.component';
+import { GenresItemsComponent } from './component/genres-items/genres-items.component';
+import { ButtonModule } from 'primeng/button';
+import { TvShowComponent } from './pages/tv-show/tv-show.component';
+import { TvShowDetailsComponent } from './pages/tv-show-details/tv-show-details.component';
+import { TvShowVideoComponent } from './component/tv-show-video/tv-show-video.component';
 
 @NgModule({
   declarations: [
@@ -37,8 +42,25 @@ import { CarouselModule } from 'primeng/carousel';
     HomeComponent,
     MoviesItemComponent,
     MovieVideoComponent,
+    GenresComponent,
+    GenreMovieComponent,
+    GenreTvShowComponent,
+    GenresItemsComponent,
+    TvShowComponent,
+    TvShowDetailsComponent,
+    TvShowVideoComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule, PaginatorModule, TabViewModule,ImageModule,CarouselModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    PaginatorModule,
+    TabViewModule,
+    ImageModule,
+    CarouselModule,
+    ButtonModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

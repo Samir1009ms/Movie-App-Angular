@@ -1,16 +1,26 @@
-<ng-container *ngIf='itemData'>
-    <a class="item" [routerLink]="'/movie/'+itemData.id">
+<ng-container *ngIf='movie'>
+    <a class="item" [routerLink]="'/movie/'+movie.id">
         <div class="item-rating">
             <i class="app-icon">star</i>
-            <span>{{itemData.vote_average}}</span>/10
+            <span>{{movie.vote_average}}</span>/10
         </div>
         <div class="item-image">
-            <img
-                   *ngIf="itemData.backdrop_path !=null" [alt]="itemData.title" [src]="'https://image.tmdb.org/t/p/w780/' + itemData.backdrop_path" />
-            <img *ngIf="itemData.backdrop_path == null" [alt]="itemData.title" src='./assets/images/noİmage..png' />
-<!--            <img *ngIf="itemData.profile_path != null" [alt]="itemData.title" [src]="'https://image.tmdb.org/t/p/w780/' + itemData.poster_path" />-->
-
+            <img *ngIf="movie.backdrop_path !=null" [alt]="movie.title" [src]="'https://image.tmdb.org/t/p/w780/' + movie.backdrop_path" />
+            <img *ngIf="movie.backdrop_path == null" [alt]="movie.title" src='./assets/images/noİmage..png' />
         </div>
-        <div class="item-title">{{itemData.title}}</div>
+        <div class="item-title">{{movie.title}}</div>
+    </a>
+</ng-container>
+<ng-container *ngIf='tvShow'>
+    <a class="item" [routerLink]="'/tv-shows/'+tvShow.id">
+        <div class="item-rating">
+            <i class="app-icon">star</i>
+            <span>{{tvShow.vote_average}}</span>/10
+        </div>
+        <div class="item-image">
+            <img *ngIf="tvShow.backdrop_path !=null" [alt]="tvShow.name" [src]="'https://image.tmdb.org/t/p/w780/' + tvShow.backdrop_path" />
+            <img *ngIf="tvShow.backdrop_path == null" [alt]="tvShow.name" src='./assets/images/noİmage..png' />
+        </div>
+        <div class="item-title">{{tvShow.name}}</div>
     </a>
 </ng-container>
