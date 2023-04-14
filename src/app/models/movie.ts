@@ -23,11 +23,30 @@ export interface IGenres {
   id: number;
   name: string;
 }
+export interface IMovieCredits {
+  id: number
+  cast: ICast[]
+}
+
+export interface ICast {
+  adult: boolean
+  gender: number
+  id: number
+  known_for_department: string
+  name: string
+  original_name: string
+  popularity: number
+  profile_path: string
+  cast_id: number
+  character: string
+  credit_id: string
+  order: number
+}
 
 export interface IMovieDto {
   page: number;
   results: IMovie[];
-  total_pages: number;
+    total_pages: number;
   total_results: number;
 }
 

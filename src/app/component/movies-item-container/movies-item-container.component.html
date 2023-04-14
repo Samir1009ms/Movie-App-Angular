@@ -8,6 +8,7 @@
             <img
                    *ngIf="itemData.backdrop_path !=null" [alt]="itemData.title" [src]="'https://image.tmdb.org/t/p/w780/' + itemData.backdrop_path" />
             <img *ngIf="itemData.backdrop_path == null" [alt]="itemData.title" src='./assets/images/noİmage..png' />
+<!--            <img *ngIf="itemData.profile_path != null" [alt]="itemData.title" [src]="'https://image.tmdb.org/t/p/w780/' + itemData.poster_path" />-->
 
         </div>
         <div class="item-title">{{itemData.title}}</div>

@@ -1,5 +1,5 @@
 import { first } from 'rxjs';
-import {IMovie, IMovieImages, IMovieVideo} from './../../models/movie';
+import {ICast, IMovie, IMovieCredits, IMovieImages, IMovieVideo} from './../../models/movie';
 import { MovieService } from './../../services/movie.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -14,12 +14,16 @@ export class MovieDetailsComponent implements OnInit {
   movieImages: IMovieImages | null = null;
 
   movieVideos: IMovieVideo[] = [];
+  credits: IMovieCredits | null = null;
+  similarMovies: IMovie[] = [];
   constructor(private route: ActivatedRoute, private MovieService: MovieService) {}
   ngOnInit(): void {
     this.route.params.pipe(first()).subscribe(({ id }) => {
       this.getMovie(id);
       this.getMovieVideo(id);
       this.getMovieImages(id);
+      this.getMovieCredits(id);
+        this.getMoviesSimilar(id);
     });
   }
 
@@ -37,6 +41,16 @@ export class MovieDetailsComponent implements OnInit {
     this.MovieService.getMovieImages(id).subscribe((movieImagesData) => {
       this.movieImages = movieImagesData;
       console.log(movieImagesData)
+    });
+  }
+  getMovieCredits(id: string) {
+    this.MovieService.getMovieCredits(id).subscribe(res => {
+      this.credits = res;
+    });
+  }
+  getMoviesSimilar(id: string) {
+    this.MovieService.getMoviesSimilar(id).subscribe(res => {
+      this.similarMovies = res;
     });
   }
 }

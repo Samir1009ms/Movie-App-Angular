@@ -26,5 +26,10 @@ export class HomeComponent implements OnInit {
     this.MovieService.getMovies('top_rated').subscribe(res => {
       this.TopRatedMovie = res;
     });
+
+
+
+
+
   }
 }

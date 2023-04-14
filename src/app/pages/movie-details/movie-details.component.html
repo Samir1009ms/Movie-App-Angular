@@ -77,5 +77,16 @@
                 </div>
             </p-tabPanel>
         </p-tabView>
+        <p-carousel [numVisible]="5" *ngIf='credits' [value]='credits.cast' >
+            <ng-template let-actor pTemplate="item">
+                <div *ngIf='actor.profile_path' class="actor">
+                    <img [src]="'https://image.tmdb.org/t/p/w780/' + actor.profile_path" [alt]="actor.name" />
+                    <span>{{ actor.name }}</span>
+                </div>
+            </ng-template>
+        </p-carousel>
+
+        <app-movies-item [items]="similarMovies"></app-movies-item>
     </div>
+
 </ng-container>
