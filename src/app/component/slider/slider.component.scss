@@ -1,4 +1,5 @@
 @import '../../../styles/colors';
+@import '../../../styles/mixins';
 
 .slider {
     color: $white;
@@ -47,8 +48,18 @@
             top: 5rem;
             left: 5rem;
 
+            @include mobile {
+                width: 90%;
+                left: 10px;
+            }
+
             .name {
                 font-size: 2.8rem;
+
+                @include mobile {
+                    font-size: 1.8rem;
+                    margin-bottom: 14px;
+                }
             }
 
             .meta {
@@ -85,6 +96,10 @@
             .desc {
                 font-size: 1.2rem;
                 line-height: 1.6;
+
+                @include mobile {
+                    font-size: 15px;
+                }
             }
         }
     }
